@@ -19,7 +19,7 @@ categories:
     - Reports
 ---
 
-[**_Report release history_**](https://SCCM.Zone/SIT-Devices-by-Boundary-and-Network-CHANGELOG)
+[Report release history](https://SCCM.Zone/SIT-Devices-by-Boundary-and-Network-CHANGELOG)
 
 This all started with a simple boundary review when I figured It might be handy to have a boundary report. After some research It started to dawn on me that this would not be an easy task.
 
@@ -51,9 +51,9 @@ Here goes nothing…
 
 In order to check if an IP is in range, compute subnet or CIDR, three SQL User Defined Functions need to be created.
 
-* Copy paste the [SQL User Defined Function](#code) in SSMS
-* Change the **&lt;SITE_CODE&gt;** in the **USE** statement to match your Site Code.
-* Click **Execute** to add the **usp_\<Support_Function_Name\>** to your database.
+* Copy paste the [<SQL User Defined Function>](#code) in SSMS
+* Change the `<SITE_CODE>` in the `USE` statement to match your Site Code.
+* Click `Execute` to add the `ufn_<Support_Function_Name>` to your database.
 * Repeat the steps for all three functions.
 
 {{<
@@ -76,15 +76,15 @@ In order to check if an IP is in range, compute subnet or CIDR, three SQL User D
 
 Gets the CIDR (‘/’) from a IP Subnet Mask.
 
-{{% details "[***Click to expand - Add Code and SQL Reporting rights***]" %}}
-<script src=".js"></script>
+{{% details "[Click to expand - Add Code and SQL Reporting rights]" %}}
+<script src="https://gist.github.com/Ioan-Popovici/144179a62e9b248328e1d6e723ee043d.js"></script>
 {{% /details %}}
 
 ### ufn_IsIPInRange
 
 Checks if the IP is in the specified IP range.
 
-{{% details "[***Click to expand  - Add Code and SQL Reporting rights***]" %}}
+{{% details "[Click to expand  - Add Code and SQL Reporting rights]" %}}
 <script src=".js"></script>
 {{% /details %}}
 
@@ -92,7 +92,7 @@ Checks if the IP is in the specified IP range.
 
 Checks if the IP is in the specified subnet using the subnet mask.
 
-{{% details "[***Click to expand  - Add Code and SQL Reporting rights***]" %}}
+{{% details "[Click to expand  - Add Code and SQL Reporting rights]" %}}
 <script src=".js"></script>
 {{% /details %}}
 
@@ -100,7 +100,7 @@ Checks if the IP is in the specified subnet using the subnet mask.
 
 For reference only, since the report includes this query.
 
-{{% details "[***Click to expand - Add code***]" %}}
+{{% details "[Click to expand - Add code]" %}}
 <script src=".js"></script>
 {{% /details %}}
 

@@ -6,27 +6,27 @@ description: SCCM hardware inventory extension for SQL versioning.
 author: Ioan Popovici
 author_link: https://sccm.zone/
 logo: "/uploads/authors/ioan_popovici.jpg"
-toc: true
+toc: false
 date: 2019-07-18T16:19:15.931Z
 lastmod: 2019-09-11T12:39:20+03:00
 aliases:
     - ""
 tags:
-  - SQL
-  - SSRS
-  - SCCM
-  - HWI
-  - vbScript
+    - SQL
+    - SSRS
+    - SCCM
+    - HWI
+    - vbScript
 categories:
-  - Reports
-  - Scripts
+    - Reports
+    - Scripts
 ---
 
-[**_Report release history_**](https://SCCM.Zone/SW-SQL-Server-Products-CHANGELOG)
+[Report release history](https://SCCM.Zone/SW-SQL-Server-Products-CHANGELOG)
 
-[**_Previous report version_**](https://sccm-zone.com/sql-version-detection-and-report-sccm-2012-r2-12f299b5e63b)
+[Previous report version](https://sccm-zone.com/sql-version-detection-and-report-sccm-2012-r2-12f299b5e63b)
 
-[**_Originaly published on sccmf12twice.com_**](https://SCCM.Zone/SW-SQL-Server-Products-EXT)
+[Originaly published on sccmf12twice.com](https://SCCM.Zone/SW-SQL-Server-Products-EXT)
 
 This is the second iteration of my SQL version report. When I look back on my previous work I always cringe and this was no exception. A while back, I received a request to add the SQL key to the report, so I began examining the old code. Horrified by the things that I found laying dormant there, I scrapped everything and started anew. The result is a brand new report with a lot more info, smaller database footprint and much better coding.
 
@@ -40,25 +40,29 @@ This is the second iteration of my SQL version report. When I look back on my pr
 > **Notes**
 > This version is compatible with the previous version, they can live side by side.
 > Hardware inventory extension needs to be done on the top of your hierarchy.
+> **Allow** some time for the policy to be downloaded or force a policy refresh.
+> **Allow** some time for the data to be gathered or force a HWI collection.
+> This report was created with SQL 2017 Reporting Services, you might need to remove some report elements if you use an older version.
 
-## Installation
-
-### Prerequisites
+## Prerequisites
 
 * Test environment
 * Downloads (Right click → Download linked file)
   * [HWI EXT SQL Server Products.mof](https://raw.githubusercontent.com/SCCM-Zone/sccm-zone.github.io/master/Reporting/Software/SW%20SQL%20Server%20Products/HWI%20EXT%20SQL%20Server%20Products.mof) (HWI Extension)
   * [HWI DEF SQL Server Products.mof](https://raw.githubusercontent.com/SCCM-Zone/sccm-zone.github.io/master/Reporting/Software/SW%20SQL%20Server%20Products/HWI%20DEF%20SQL%20Server%20Products.mof) (HWI Definitions)
   * [SW SQL Server Products.rdl](https://raw.githubusercontent.com/SCCM-Zone/sccm-zone.github.io/master/Reporting/Software/SW%20SQL%20Server%20Products/SW%20SQL%20Server%20Products.rdl) (SSRS Report)
-* SQL Stored Procedure → [**SQL Stored Procedure**](#create-the-sql-stored-procedure)
+* Create SQL Stored Procedure (Copy/Paste → SSMS)
+  * [usp_PivotWithDynamicColumns](#sql-stored-procedure)
+
+## Installation
 
 ### HWI Extension
 
-The extension needs to be added to the **&lt;CMInstallLocation&gt;\\Inboxes\\clifiles.src\\hinv\\configuration.mof** file
+The extension needs to be added to the `<CMInstallLocation>\Inboxes\clifiles.src\hinv\configuration.mof` file
 
-* Insert the extension at the end of the **configuration.mof** file and between the following headers:
+* Insert the extension at the end of the `configuration.mof` file between the following headers:
 
-```bash
+```text
 //========================
 // Added extensions start
 //========================
@@ -68,21 +72,21 @@ The extension needs to be added to the **&lt;CMInstallLocation&gt;\\Inboxes\\cli
 //========================
 ```
 
-* Uncomment the '**Old SQL extension cleanup'** section to remove the old extension classes from the clients repositories if needed.
-* Use a test environment for validation as described in the [**Test and Validation**](#test-and-validation) section.
+* Uncomment the `Old SQL extension cleanup` section to remove the old extension classes from the clients repositories if needed.
+* Use a test environment for validation as described in the [Test and Validation](#test-and-validation) section.
 
 > **Notes**
 > Always use a test environment before any changes in production!
-> Never create any extensions outside of the “Added extensions start/end” headers.
+> Never create any extensions outside of the `Added extensions start/end` headers.
 > Try to have consistent formatting inside these headers.
 > Never modify anything outside these headers.
-> Watch for other previous extensions and use clear delimitation between them.
+> Watch for other previous extensions and use clear delimitations between them.
 
 ### Apply changes
 
 Compiling the configuration.mof file in the hinv folder on the CAS/PSS, will trigger the distribution and compilation on all machines in your environment on the next machine policy evaluation.
 
-```bash
+```cmd
 mofcomp.exe <CMInstallLocation>\Inboxes\clifiles.src\hinv\Configuration.mof
 ```
 
@@ -98,7 +102,7 @@ You need to add the new class definitions to the Default Client Settings
 * Import definitions.
 
 {{<
-    beautifulfigure src="/uploads/posts/2019/hwi-import_sql_definitions_a.png"
+    beautifulfigure src="/uploads/posts/2019/client_settings-hwi-import_sql_definitions_a.png"
     caption="Click on Import and select the HWI DEF SQL Server Products.mof file"
     caption-position="bottom" caption-effect="slide"
 >}}
@@ -106,7 +110,7 @@ You need to add the new class definitions to the Default Client Settings
 &nbsp;
 
 {{<
-    beautifulfigure src="/uploads/posts/2019/hwi-import_sql_definitions_b.png"
+    beautifulfigure src="/uploads/posts/2019/client_settings-hwi-import_sql_definitions_b.png"
     caption="Review the classes and click 'Import'"
     caption-position="bottom" caption-effect="slide"
 >}}
@@ -114,7 +118,7 @@ You need to add the new class definitions to the Default Client Settings
 &nbsp;
 
 {{<
-    beautifulfigure src="/uploads/posts/2019/hwi-import_sql_definitions_c.png"
+    beautifulfigure src="/uploads/posts/2019/client_settings-hwi-import_sql_definitions_c.png"
     caption="Make sure the new extension classes are enabled and click 'OK'"
     caption-position="bottom" caption-effect="slide"
 >}}
@@ -128,7 +132,7 @@ You need to add the new class definitions to the Default Client Settings
 
 ### Configuration.mof
 
-Use [**_mofcomp.exe_**](https://docs.microsoft.com/en-us/windows/win32/wmisdk/mofcomp) to check if [**_configuration.mof_**](https://technet.microsoft.com/en-us/library/bb680858.aspx) was correctly modified and implement the changes.
+Use `mofcomp.exe` to check if `configuration.mof` was correctly modified and implement the changes.
 
 ```powershell
 ## Check syntax
@@ -197,26 +201,23 @@ Use SSMS (SQL Server Management Studio) to check if the views are created in the
 
 ### Upload Report to SSRS
 
-* Start Internet Explorer and navigate to [**http://&lt;YOUR_REPORT_SERVER_FQDN&gt;Reports**](http://en.wikipedia.org/wiki/Fully_qualified_domain_name)
+* Start Internet Explorer and navigate to [http://&lt;YOUR_REPORT_SERVER_FQDN&gt;Reports](http://en.wikipedia.org/wiki/Fully_qualified_domain_name)
 * Choose a path and upload the previously downloaded report file.
 
 ### Configure Imported Report
 
-* [**_Replace the DataSource_**](https://joshheffner.com/how-to-import-additional-software-update-reports-in-sccm/) in the report.
+* [Replace the DataSource](https://joshheffner.com/how-to-import-additional-software-update-reports-in-sccm/) in the report.
 
 ## Create the SQL Stored Procedure
 
-The usp_PivotWithDynamicColumns is needed in order to maximize code reuse and have a more sane and sanitized data source.
+The `usp_PivotWithDynamicColumns` is needed in order to maximize code reuse and have a more sane and sanitized data source.
 
-* Copy paste the [SQL Stored Procedure](#sql-stored-procedure) in SSMS
-* Change the **&lt;SITE_CODE&gt;** in the **USE** statement to match your Site Code.
-* Click **Execute** to add the **usp_PivotWithDynamicColumns** stored procedure to your database.
+* Copy paste the [usp_PivotWithDynamicColumns](#sql-stored-procedure) in SSMS
+* Change the `<SITE_CODE>` in the `USE` statement to match your Site Code.
+* Click `Execute` to add the `usp_PivotWithDynamicColumns` stored procedure to your database.
 
 > **Notes**
-> **You might need additional DB access to install the support function!**
-> **Allow** some time for the policy to be downloaded or force a policy refresh.
-> **Allow** some time for the data to be gathered or force a HWI collection.
-> This report was created with SQL 2017 Reporting Services, you might need to remove some report elements if you use an older version.
+> You might need additional DB access to install the support function!
 
 ## Preview
 
@@ -230,36 +231,48 @@ The usp_PivotWithDynamicColumns is needed in order to maximize code reuse and ha
 
 ### Extension
 
-For reference only, you can download the file in the [**Prerequisites**](#prerequisites) section.
+For reference only, you can download the file in the [Prerequisites](#prerequisites) section.
 
-{{% details "[***Click to expand***]" %}}
-<script src="https://gist.github.com/Ioan-Popovici/db8228de1d96def7a455fdbf1b59f165.js"></script>
+{{% details "[Click to expand]" %}}
+<script src="https://embed.cacher.io/82503b820d64ff40acfe15940c7b49a67f0ef842.js?a=082e5185facf1c8324545916152f9894&t=github_gist"></script>
 {{% /details %}}
 
 ### Definitions
 
-For reference only, you can download the file in the [**Prerequisites**](#prerequisites) section.
+For reference only, you can download the file in the [Prerequisites](#prerequisites) section.
 
-{{% details "[***Click to expand***]" %}}
-<script src="https://gist.github.com/Ioan-Popovici/db8228de1d96def7a455fdbf1b59f165.js"></script>
+{{% details "[Click to expand]" %}}
+<script src="https://embed.cacher.io/860738d50536a214aeaa1c9b5b2d13af790fa813.js?a=f283c62834708e79cc125dad3b782c3b&t=github_gist"></script>
+{{% /details %}}
+
+### SQL Stored Procedure
+
+Needs to be created as a prerequisite.
+
+{{% details "[Click to expand]" %}}
+<script src="https://embed.cacher.io/81033a840963af49acaf1791082512a77d0afa48.js?a=7630f583e8d0b8bfa6615782e3ef3a6b&t=github_gist"></script>
 {{% /details %}}
 
 ### SQL Query
 
 For reference only, the report includes this query.
 
-{{% details "[***Click to expand***]" %}}
-<script src="https://gist.github.com/Ioan-Popovici/db8228de1d96def7a455fdbf1b59f165.js"></script>
+{{% details "[Click to expand]" %}}
+<script src="https://embed.cacher.io/865539800c36f816fcf813c6582f19a62903a912.js?a=19be45f5d31c708cce0d376811014fbd&t=github_gist"></script>
 {{% /details %}}
 
 ### VB Support Function
 
 For reference only, the report includes this function.
 
-{{% details "[***Click to expand***]" %}}
-<script src="https://gist.github.com/Ioan-Popovici/db8228de1d96def7a455fdbf1b59f165.js"></script>
+{{% details "[Click to expand]" %}}
 
-<script src="https://embed.cacher.io/83576ed10a66f816abf812925f284fa17d58fc14.js?a=dac2e390b609c7b9b8c4f97ff5b0a4cc&t=github_gist&r=0"></script>
+<script src="https://embed.cacher.io/d15f30840432a242aafb13c00f7818f37e0cad41.js?a=cb5ad6f1d8d6f1e935d6aeb8ee799e05&t=github_gist"></script>
+
+<script src="https://gist.github.com/Ioan-Popovici/c6927bc1a44239c5476bd0e00c1f9564.js"></script>
+
+
+<script src="https://embed.cacher.io/83576ed10a66f816abf812925f284fa17d58fc14.js?a=dac2e390b609c7b9b8c4f97ff5b0a4cc&t=github_gist"></script>
 {{% /details %}}
 
 &nbsp;

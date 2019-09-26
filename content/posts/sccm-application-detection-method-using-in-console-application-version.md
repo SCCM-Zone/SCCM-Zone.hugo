@@ -9,13 +9,13 @@ logo: "/uploads/authors/ioan_popovici.jpg"
 date: 2019-04-01T16:19:15.931Z
 lastmod: 2019-09-11T12:39:20+03:00
 tags:
-- SCCM
-- Application
-- Powershell
-- DetectionMethod
+    - SCCM
+    - Application
+    - Powershell
+    - DetectionMethod
 categories:
-- HowTo
-- Scripts
+    - HowTo
+    - Scripts
 ---
 
 This method is valid for any SCCM application. In this case I will use the configuration manager client upgrade application. You might ask yourself, why not use the automatic client upgrade? Well, because the client upgrade can only run during a maintenance window. I won’t go into details, but unless this behavior changes, I cannot use this feature with my current environment.
@@ -34,7 +34,7 @@ The version will be used by the discovery method, make sure you use the correct 
 
 This path will remain the same, so there is no need to touch this ever again.
 
-    %ConfigMgrServer%\%ConfigMgrPath%\Client
+`<ConfigMgrServer>\<ConfigMgrPath>\Client`
 
 ### Create the installation script
 
@@ -55,7 +55,7 @@ In order to be able to specify the local installation source we need to use a sc
 Powershell.exe -File Install-CMClient.ps1 -ExecutionPolicy ‘Bypass’ -WindowStyle ‘Hidden’
 ```
 
-### **Set the uninstall string**
+### Set the uninstall string
 
 ```cmd
 CCMSETUP.EXE /Uninstall
