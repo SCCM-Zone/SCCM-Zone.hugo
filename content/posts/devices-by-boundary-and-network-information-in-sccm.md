@@ -27,9 +27,7 @@ In the SCCM DB there is no correlation between boundaries and IPs so there goes 
 
 Here goes nothing…
 
-## Installation
-
-### Prerequisites
+## Prerequisites
 
 * Create SQL User Functions (Follow link → Copy/Paste → [`SSMS`](https://docs.microsoft.com/en-us/sql/ssms/sql-server-management-studio-ssms?view=sql-server-2017))
   * [ufn_CIDRFromIPMask.sql](https://snippets.cacher.io/snippet/04acae7ec8247cf0fbb3)
@@ -37,6 +35,8 @@ Here goes nothing…
   * [ufn_IsIPInSubnet.sql](https://snippets.cacher.io/snippet/d152a3fe860948796395)
 * Report (Follow link → Download)
   * [SIT Devices by Boundary and Network.rdl](https://snippets.cacher.io/snippet/5c0c277f2e2a567514f1)
+
+## Installation
 
 ### Import the SSRS Report
 
