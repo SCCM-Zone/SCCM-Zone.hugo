@@ -21,9 +21,7 @@ categories:
 
 [Report release history](http://SCCM.Zone/sw-installed-software-by-user-selection-changelog)
 
-I was sitting on this one for a while for no good reason. I built it and then completely forgot about it. A few days ago I was trying to find a part of the query, used in this report realized that I forgot to publish it.
-
-Most software reports out there are pretty basic so I decided to build something new. The idea was to allow filtering by multiple software names and SQL wildcards. This principle applies to both inclusions and exclusions. The only drawback is that you have to use a SQL string parser for splitting the CSV strings. There is no need to re-invent the wheel, you can use the one created by [Michelle Ufford](http://hadoopsie.com).
+Most software reports out there are pretty basic so I decided to build something new. The idea was to allow filtering by multiple software names and SQL wildcards. This principle applies to both inclusions and exclusions. The only drawback is that you have to use a SQL string parser for splitting the CSV strings. There is no need to re-invent the wheel, you can use the one created by [`Michelle Ufford`](http://hadoopsie.com).
 
 At first, I built two reports, one displaying the data by device name and the other by publisher. In the end I ended up by merging them since it does not make sense to have to maintain two reports using the same query.
 
@@ -34,38 +32,38 @@ Also I’ve updated my report template since the old one was an over-designed pi
 
 ## Prerequisites
 
-* Download (Right click → Download linked file)
-  * [SW Installed Software by User Selection.rdl](https://raw.githubusercontent.com/SCCM-Zone/sccm-zone.github.io/master/Reporting/Software/SW%20Installed%20Software%20by%20User%20Selection/SW%20Installed%20Software%20by%20User%20Selection.rdl) (SSRS Report)
-* Create SQL User Defined Function (Copy/Paste → SSMS)
-  * [ufn_csv_String_Parser](#sql-user-defined-function)
+* Report (Follow link → Download)
+  * [SW Installed Software by User Selection.rdl](https://snippets.cacher.io/snippet/a948fe20b2fbc9ec1062)
+* Create SQL User Function (Follow link → Copy/Paste → [`SSMS`](https://docs.microsoft.com/en-us/sql/ssms/sql-server-management-studio-ssms?view=sql-server-2017))
+  * [ufn_csv_String_Parser.sql](https://snippets.cacher.io/snippet/22b47fd513bfb97f3dd5) (String Parser)
 
 ## Import the SSRS Report
 
 ### Upload Report to SSRS
 
-* Start Internet Explorer and navigate to [http://&lt;YOUR_REPORT_SERVER_FQDN&gt;Reports](http://en.wikipedia.org/wiki/Fully_qualified_domain_name)
+* Start Internet Explorer and navigate to [`http://<YOUR_REPORT_SERVER_FQDN>/Reports`](http://en.wikipedia.org/wiki/Fully_qualified_domain_name)
 * Choose a path and upload the previously downloaded report file.
 
 ### Configure Imported Report
 
-* [Replace the DataSource](https://joshheffner.com/how-to-import-additional-software-update-reports-in-sccm/) in the report.
+* Replace the [`DataSource`](https://joshheffner.com/how-to-import-additional-software-update-reports-in-sccm/) in the report.
 
-## Create the SQL Support Function
+## Create the SQL User Function
 
-The `ufn_csv_String_Parser` is needed in order to parse the csv input strings.
+The [`ufn_csv_String_Parser`](#sql-user-function) is needed in order to split the imput strings.
 
-* Copy paste the [ufn_csv_String_Parser](#ufn-csv-string-parser) in SSMS
+* Copy paste the [`ufn_csv_String_Parser`](#sql-user-function) in [`SSMS`](https://docs.microsoft.com/en-us/sql/ssms/sql-server-management-studio-ssms?view=sql-server-2017)
 * Change the `<SITE_CODE>` in the `USE` statement to match your Site Code.
-* Click `Execute` to add the `ufn_csv_String_Parser` function to your database.
+* Click `Execute` to add the [`ufn_csv_String_Parser`](#sql-user-function) user function to your database.
+
+> **Notes**
+> You might need additional DB access to install the support function!
 
 {{<
     beautifulfigure src="/uploads/posts/2018/DB-ufn-csv_string_parser.png"
     caption="User defined support function in the CMDB."
     caption-position="bottom" caption-effect="slide"
 >}}
-
-> **Notes**
-> You might need additional DB access to install the support function!
 
 ## Preview
 
@@ -110,7 +108,7 @@ The `ufn_csv_String_Parser` is needed in order to parse the csv input strings.
 For reference only, the report includes this query.
 
 {{% details "[Click to expand]" %}}
-<script src="https://gist.github.com/Ioan-Popovici/.js"></script>
+<script src="https://embed.cacher.io/82023cd40c33a313adaa459a09254ba02f5fab45.js?a=5eff416915ecfe811da0aa5944a91892&t=github_gist"></script>
 {{% /details %}}
 
 ***

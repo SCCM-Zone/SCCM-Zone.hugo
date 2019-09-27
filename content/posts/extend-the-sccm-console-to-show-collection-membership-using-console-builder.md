@@ -18,7 +18,7 @@ aliases:
     - "/extend-the-sccm-console-to-show-collection-membership-using-console-builder-c6db52b408d8"
 ---
 
-Using RCT to show the collection membership is slow and awkward. In my search to find a better option I stumbled onto the SCCM Console Builder. This is an amazing tool that is already built-in and allows a wide range of customization. I used Zeng Yinghua’s [blog post](https://www.scconfigmgr.com/2017/11/09/customizing-configmgr-admin-console-add-details-tab-to-content-status/) as a guide when creating this extension.
+Using RCT to show the collection membership is slow and awkward. In my search to find a better option I stumbled onto the SCCM Console Builder. This is an amazing tool that is already built-in and allows a wide range of customization. I used [`Zeng Yinghua’s`](https://www.scconfigmgr.com/2017/11/09/customizing-configmgr-admin-console-add-details-tab-to-content-status/) blog post as a guide when creating this extension.
 
 Without further ado let’s get to it!
 

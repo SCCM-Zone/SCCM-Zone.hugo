@@ -34,8 +34,8 @@ This is the second iteration of my SQL version report. When I look back on my pr
 
 * Do not modify or remove the previous extension version until you thoroughly test the new version.
 * Use a test environment for validation!
-* Back-up your [configuration.mof](https://technet.microsoft.com/en-us/library/bb680858.aspx) file before any changes!
-* Use [mofcomp.exe](https://docs.microsoft.com/en-us/windows/win32/wmisdk/mofcomp) to validate the [configuration.mof](https://technet.microsoft.com/en-us/library/bb680858.aspx) on a test machine first!
+* Back-up your [`configuration.mof`](https://technet.microsoft.com/en-us/library/bb680858.aspx) file before any changes!
+* Use [`mofcomp.exe`](https://docs.microsoft.com/en-us/windows/win32/wmisdk/mofcomp) to validate the [`configuration.mof`](https://technet.microsoft.com/en-us/library/bb680858.aspx) on a test machine first!
 
 > **Notes**
 > This version is compatible with the previous version, they can live side by side.
@@ -47,12 +47,13 @@ This is the second iteration of my SQL version report. When I look back on my pr
 ## Prerequisites
 
 * Test environment
-* Downloads (Right click → Download linked file)
-  * [HWI EXT SQL Server Products.mof](https://raw.githubusercontent.com/SCCM-Zone/sccm-zone.github.io/master/Reporting/Software/SW%20SQL%20Server%20Products/HWI%20EXT%20SQL%20Server%20Products.mof) (HWI Extension)
-  * [HWI DEF SQL Server Products.mof](https://raw.githubusercontent.com/SCCM-Zone/sccm-zone.github.io/master/Reporting/Software/SW%20SQL%20Server%20Products/HWI%20DEF%20SQL%20Server%20Products.mof) (HWI Definitions)
-  * [SW SQL Server Products.rdl](https://raw.githubusercontent.com/SCCM-Zone/sccm-zone.github.io/master/Reporting/Software/SW%20SQL%20Server%20Products/SW%20SQL%20Server%20Products.rdl) (SSRS Report)
-* Create SQL Stored Procedure (Copy/Paste → SSMS)
-  * [usp_PivotWithDynamicColumns](#sql-stored-procedure)
+* Extension and Defintions (Follow link → Copy/Download)
+  * [HWI EXT SQL Server Products.mof](https://snippets.cacher.io/snippet/b6321fe05d176fc1d5a3) (Extension)
+  * [HWI DEF SQL Server Products.mof](https://snippets.cacher.io/snippet/fa0e948d7088a098b41b) (Definitions)
+* Report (Follow link → Download)
+  * [SW SQL Server Products.rdl](https://snippets.cacher.io/snippet/871434ea1c5a8e1fa5aa) (SSRS Report)
+* Stored Procedure (Follow link → Copy/Paste → [`SSMS`](https://docs.microsoft.com/en-us/sql/ssms/sql-server-management-studio-ssms?view=sql-server-2017))
+  * [usp_PivotWithDynamicColumns.sql](https://snippets.cacher.io/snippet/ae245a5955322880f1c9)
 
 ## Installation
 
@@ -60,7 +61,7 @@ This is the second iteration of my SQL version report. When I look back on my pr
 
 The extension needs to be added to the `<CMInstallLocation>\Inboxes\clifiles.src\hinv\configuration.mof` file
 
-* Insert the extension at the end of the `configuration.mof` file between the following headers:
+* Insert the extension at the end of the [`configuration.mof`](https://technet.microsoft.com/en-us/library/bb680858.aspx) file between the following headers:
 
 ```text
 //========================
@@ -84,7 +85,7 @@ The extension needs to be added to the `<CMInstallLocation>\Inboxes\clifiles.src
 
 ### Apply changes
 
-Compiling the configuration.mof file in the hinv folder on the CAS/PSS, will trigger the distribution and compilation on all machines in your environment on the next machine policy evaluation.
+Compiling the [`configuration.mof`](https://technet.microsoft.com/en-us/library/bb680858.aspx) file in the hinv folder on the CAS/PSS, will trigger the distribution and compilation on all machines in your environment on the next machine policy evaluation.
 
 ```cmd
 mofcomp.exe <CMInstallLocation>\Inboxes\clifiles.src\hinv\Configuration.mof
@@ -132,7 +133,7 @@ You need to add the new class definitions to the Default Client Settings
 
 ### Configuration.mof
 
-Use `mofcomp.exe` to check if `configuration.mof` was correctly modified and implement the changes.
+Use [`mofcomp.exe`](https://docs.microsoft.com/en-us/windows/win32/wmisdk/mofcomp) to check if [`configuration.mof`](https://technet.microsoft.com/en-us/library/bb680858.aspx) was correctly modified and implement the changes.
 
 ```powershell
 ## Check syntax
@@ -157,7 +158,7 @@ mofcomp.exe <Configuration.mof_Directory>\Configuration.mof
 &nbsp;
 
 > **Notes**
-> Saving and compiling the configuration.mof file in the hinv folder on the CAS/PSS, will trigger the distribution and compilation on all machines in your environment on the next machine policy evaluation.
+> Saving and compiling the [`configuration.mof`](https://technet.microsoft.com/en-us/library/bb680858.aspx) file in the hinv folder on the CAS/PSS, will trigger the distribution and compilation on all machines in your environment on the next machine policy evaluation.
 
 ### WMI
 
@@ -189,7 +190,7 @@ Get-CimClass -ClassName SQL_ProductID
 
 ### Database
 
-Use SSMS (SQL Server Management Studio) to check if the views are created in the CM database
+Use [`SSMS`](https://docs.microsoft.com/en-us/sql/ssms/sql-server-management-studio-ssms?view=sql-server-2017) (SQL Server Management Studio) to check if the views are created in the CM database
 
 {{<
     beautifulfigure src="/uploads/posts/2019/DB-hwi_sql_extension_views.png"
@@ -201,20 +202,20 @@ Use SSMS (SQL Server Management Studio) to check if the views are created in the
 
 ### Upload Report to SSRS
 
-* Start Internet Explorer and navigate to [http://&lt;YOUR_REPORT_SERVER_FQDN&gt;Reports](http://en.wikipedia.org/wiki/Fully_qualified_domain_name)
+* Start Internet Explorer and navigate to [`http://<YOUR_REPORT_SERVER_FQDN>/Reports`](http://en.wikipedia.org/wiki/Fully_qualified_domain_name)
 * Choose a path and upload the previously downloaded report file.
 
 ### Configure Imported Report
 
-* [Replace the DataSource](https://joshheffner.com/how-to-import-additional-software-update-reports-in-sccm/) in the report.
+* Replace the [`DataSource`](https://joshheffner.com/how-to-import-additional-software-update-reports-in-sccm/) in the report.
 
 ## Create the SQL Stored Procedure
 
-The `usp_PivotWithDynamicColumns` is needed in order to maximize code reuse and have a more sane and sanitized data source.
+The [`usp_PivotWithDynamicColumns`](#sql-stored-procedure) is needed in order to maximize code reuse and have a more sane and sanitized data source.
 
-* Copy paste the [usp_PivotWithDynamicColumns](#sql-stored-procedure) in SSMS
+* Copy paste the [`usp_PivotWithDynamicColumns`](#sql-stored-procedure) in [`SSMS`](https://docs.microsoft.com/en-us/sql/ssms/sql-server-management-studio-ssms?view=sql-server-2017)
 * Change the `<SITE_CODE>` in the `USE` statement to match your Site Code.
-* Click `Execute` to add the `usp_PivotWithDynamicColumns` stored procedure to your database.
+* Click `Execute` to add the [`usp_PivotWithDynamicColumns`](#sql-stored-procedure) stored procedure to your database.
 
 > **Notes**
 > You might need additional DB access to install the support function!
@@ -266,11 +267,6 @@ For reference only, the report includes this query.
 For reference only, the report includes this function.
 
 {{% details "[Click to expand]" %}}
-
-<script src="https://embed.cacher.io/d15f30840432a242aafb13c00f7818f37e0cad41.js?a=cb5ad6f1d8d6f1e935d6aeb8ee799e05&t=github_gist"></script>
-
-<script src="https://gist.github.com/Ioan-Popovici/c6927bc1a44239c5476bd0e00c1f9564.js"></script>
-
 
 <script src="https://embed.cacher.io/83576ed10a66f816abf812925f284fa17d58fc14.js?a=dac2e390b609c7b9b8c4f97ff5b0a4cc&t=github_gist"></script>
 {{% /details %}}

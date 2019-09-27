@@ -40,11 +40,11 @@ This path will remain the same, so there is no need to touch this ever again.
 
 In order to be able to specify the local installation source we need to use a script. Useful in low bandwidth environments.
 
-<script src="https://gist.github.com/Ioan-Popovici/eb44d90377f8e4370ef65d1af65ce7bc.js"></script>
+<script src="https://embed.cacher.io/d6033dd3053bad41faf813905b2b1da67e5aaa47.js?a=16ec5caa3f5d4abf745efff14fe500c8&t=github_gist"></script>
 
 ### Set the discovery method
 
-<script src="https://gist.github.com/Ioan-Popovici/9357902b9d66a30e531c0be883e46f18.js"></script>
+<script src="https://embed.cacher.io/d0566d835960fe16ada9419b0c2848af2c0faa47.js?a=416f41347cef57be422b9dbaadfadb76&t=github_gist"></script>
 
 > **Notes**
 > Remember to change the application name accordingly.

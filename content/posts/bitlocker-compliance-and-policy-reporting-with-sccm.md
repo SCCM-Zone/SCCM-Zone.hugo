@@ -24,7 +24,7 @@ aliases:
 
 [Report release history](https://SCCM.Zone/SEC-BitLocker-Compliance-And-Policy-CHANGELOG)
 
-My vague promises of publishing a BitLocker report based on HWI seem to have come true. This is a complete report that also displays BitLocker GPO settings. In order to get the BitLocker and Policy data, you need to extend the SCCM Hardware Inventory. If you don’t want to do that you can use my [BitLocker Configuration Baseline](https://SCCM.Zone/Get-BitlockerStatus) together with the [Baseline Report with Actual Values](https://SCCM.Zone/CB-Configuration-Baseline-Compliance) report.
+My vague promises of publishing a BitLocker report based on HWI seem to have come true. This is a complete report that also displays BitLocker GPO settings. In order to get the BitLocker and Policy data, you need to extend the SCCM Hardware Inventory. If you don’t want to do that you can use my [`BitLocker Configuration Baseline`](https://SCCM.Zone/Get-BitlockerStatus) together with the [`Baseline Report with Actual Values`](https://SCCM.Zone/CB-Configuration-Baseline-Compliance) report.
 
 ## Recommendations
 
@@ -41,16 +41,15 @@ My vague promises of publishing a BitLocker report based on HWI seem to have com
 ## Prerequisites
 
 * Test environment
-* Downloads (Follow link → Copy/Download)
-  * Extensions
-      * [HWI EXT Win32_EncryptableVolume_Ext.mof](https://snippets.cacher.io/snippet/dd3ad984e4dada9fbec5)
-      * [HWI EXT Win32Reg_BitlockerPolicy.mof](https://snippets.cacher.io/snippet/5d7adc9bc208a6bcad95)
-  * Definitions
-      * [HWI DEF Win32_EncryptableVolume_Ext.mof](https://snippets.cacher.io/snippet/f3d44f4475a2e79490f7)
-      * [HWI DEF Win32Reg_BitlockerPolicy.mof](https://snippets.cacher.io/snippet/f3d44f4475a2e79490f7)
-  * Reports
-      * [SEC Bitlocker Compliance and Policy.rdl](https://snippets.cacher.io/snippet/5c82da245acc0824786f) (SSRS Report)
-      * [SR Display Formatted Text.rdl](https://snippets.cacher.io/snippet/d02f2115aae43a153809) (SSRS Sub-Report)
+* Extensions (Follow link → Copy/Paste)
+  * [HWI EXT Win32_EncryptableVolume_Ext.mof](https://snippets.cacher.io/snippet/dd3ad984e4dada9fbec5)
+  * [HWI EXT Win32Reg_BitlockerPolicy.mof](https://snippets.cacher.io/snippet/5d7adc9bc208a6bcad95)
+* Definitions (Follow link → Download)
+  * [HWI DEF Win32_EncryptableVolume_Ext.mof](https://snippets.cacher.io/snippet/f3d44f4475a2e79490f7)
+  * [HWI DEF Win32Reg_BitlockerPolicy.mof](https://snippets.cacher.io/snippet/f3d44f4475a2e79490f7)
+* Reports (Follow link → Download)
+  * [SEC Bitlocker Compliance and Policy.rdl](https://snippets.cacher.io/snippet/5c82da245acc0824786f) (SSRS Report)
+  * [SR Display Formatted Text.rdl](https://snippets.cacher.io/snippet/d02f2115aae43a153809) (SSRS Sub-Report)
 
 ## Installation
 
@@ -58,7 +57,7 @@ My vague promises of publishing a BitLocker report based on HWI seem to have com
 
 The previously downloaded extensions need to be added to the `<CMInstallLocation>\Inboxes\clifiles.src\hinv\configuration.mof` file
 
-* Insert the extensions at the end of the `configuration.mof` file between the following headers:
+* Insert the extensions at the end of the [`configuration.mof`](https://technet.microsoft.com/en-us/library/bb680858.aspx) file between the following headers:
 
 ```text
 //========================
@@ -193,7 +192,7 @@ Get-CimClass -ClassName Win32Reg_BitlockerPolicy
 
 ### Database
 
-Use SSMS (SQL Server Management Studio) to check if the views are created in the CM database
+Use [`SSMS`](https://docs.microsoft.com/en-us/sql/ssms/sql-server-management-studio-ssms?view=sql-server-2017) (SQL Server Management Studio) to check if the views are created in the CM database
 
 {{<
     beautifulfigure src="/uploads/posts/2018/DB-hwi_bitlocker_extension_views.png"
@@ -207,7 +206,7 @@ The report is comprised of a report and a sub-report. If you rename the sub-repo
 
 ### Upload Report to SSRS
 
-* Start Internet Explorer and navigate to [`http://<YOUR_REPORT_SERVER_FQDN>Reports`](http://en.wikipedia.org/wiki/Fully_qualified_domain_name)
+* Start Internet Explorer and navigate to [`http://<YOUR_REPORT_SERVER_FQDN>/Reports`](http://en.wikipedia.org/wiki/Fully_qualified_domain_name)
 * Choose a path and upload the previously downloaded report files.
 
 ### Configure Imported Report

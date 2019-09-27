@@ -31,27 +31,27 @@ Here goes nothing…
 
 ### Prerequisites
 
-* SQL user defined functions
-  * [ufn_CIDRFromIPMask](#ufn-cidrfromipmask)
-  * [ufn_IsIPInRange](#ufn-isipinrange)
-  * [ufn_IsIPInSubnet](#ufn-isipinsubnet)
-* Downloads (Right click → _Download linked file)
-  * [SIT Devices by Boundary and Network.rdl](https://raw.githubusercontent.com/SCCM-Zone/sccm-zone.github.io/master/Reporting/Site/SIT%20Device%20by%20Boundary%20and%20Network/SIT%20Devices%20by%20Boundary%20and%20Network.rdl) (SSRS Report)
+* Create SQL User Functions (Follow link → Copy/Paste → [`SSMS`](https://docs.microsoft.com/en-us/sql/ssms/sql-server-management-studio-ssms?view=sql-server-2017))
+  * [ufn_CIDRFromIPMask.sql](https://snippets.cacher.io/snippet/04acae7ec8247cf0fbb3)
+  * [ufn_IsIPInRange.sql](https://snippets.cacher.io/snippet/96ad40077a1d195958fb)
+  * [ufn_IsIPInSubnet.sql](https://snippets.cacher.io/snippet/d152a3fe860948796395)
+* Report (Follow link → Download)
+  * [SIT Devices by Boundary and Network.rdl](https://snippets.cacher.io/snippet/5c0c277f2e2a567514f1)
 
 ### Import the SSRS Report
 
-* Start Internet Explorer and navigate to [http://&lt;YOUR_REPORT_SERVER_FQDN&gt;Reports](http://en.wikipedia.org/wiki/Fully_qualified_domain_name)
+* Start Internet Explorer and navigate to [`http://<YOUR_REPORT_SERVER_FQDN>/Reports`](http://en.wikipedia.org/wiki/Fully_qualified_domain_name)
 * Choose a path and upload the previously downloaded report file.
 
 ### Configure Imported Report
 
-* [Replace the DataSource](https://joshheffner.com/how-to-import-additional-software-update-reports-in-sccm/) in the report.
+* Replace the [`DataSource`](https://joshheffner.com/how-to-import-additional-software-update-reports-in-sccm/) in the report.
 
 ### Create the SQL Support Functions
 
 In order to check if an IP is in range, compute subnet or CIDR, three SQL User Defined Functions need to be created.
 
-* Copy paste the [<SQL User Defined Function>](#code) in SSMS
+* Copy paste the [`<SQL User Defined Function>`](#code) in [`SSMS`](https://docs.microsoft.com/en-us/sql/ssms/sql-server-management-studio-ssms?view=sql-server-2017)
 * Change the `<SITE_CODE>` in the `USE` statement to match your Site Code.
 * Click `Execute` to add the `ufn_<Support_Function_Name>` to your database.
 * Repeat the steps for all three functions.
@@ -76,32 +76,32 @@ In order to check if an IP is in range, compute subnet or CIDR, three SQL User D
 
 Gets the CIDR (‘/’) from a IP Subnet Mask.
 
-{{% details "[Click to expand - Add Code and SQL Reporting rights]" %}}
-<script src="https://gist.github.com/Ioan-Popovici/144179a62e9b248328e1d6e723ee043d.js"></script>
+{{% details "[Click to expand]" %}}
+<script src="https://embed.cacher.io/d05269d35d67ad15faa216970d7e4ca77d59fb42.js?a=4cd86b487fdce0cf633ebc8c2297ceb5&t=github_gist"></script>
 {{% /details %}}
 
 ### ufn_IsIPInRange
 
 Checks if the IP is in the specified IP range.
 
-{{% details "[Click to expand  - Add Code and SQL Reporting rights]" %}}
-<script src=".js"></script>
+{{% details "[Click to expand]" %}}
+<script src="https://embed.cacher.io/d95069d40832aa47aefb15c70b241fae2e03ff13.js?a=ca86032df616ad71693f19f645a5a40b&t=github_gist"></script>
 {{% /details %}}
 
 ### ufn_IsIPInSubnet
 
 Checks if the IP is in the specified subnet using the subnet mask.
 
-{{% details "[Click to expand  - Add Code and SQL Reporting rights]" %}}
-<script src=".js"></script>
+{{% details "[Click to expand]" %}}
+<script src="https://embed.cacher.io/84573d825d31fc15a1ac149a0e251dae2d08a044.js?a=3d8c251b93e2b820bb7bdf3a42c66c06&t=github_gist"></script>
 {{% /details %}}
 
 ### SQL Query
 
 For reference only, since the report includes this query.
 
-{{% details "[Click to expand - Add code]" %}}
-<script src=".js"></script>
+{{% details "[Click to expand]" %}}
+<script src="https://embed.cacher.io/82503e890460a841a9a91d910a2b49a22e08a012.js?a=789306ddd3ff82c26522f1a23b158d9c&t=github_gist"></script>
 {{% /details %}}
 
 ***
