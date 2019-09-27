@@ -1,4 +1,4 @@
-baseURL = "https://sccm-zone.com/"
+baseURL = "https://sccm-zone.com"
 DefaultContentLanguage = "en"
 languageCode = "en-us"
 relativeURLs = false
