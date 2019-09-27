@@ -8,8 +8,6 @@ author_link: "https://sccm.zone/"
 logo: "/uploads/authors/ioan_popovici.jpg"
 date: 2018-11-02T13:03:15.290Z
 lastmod: 2019-08-23T12:37:33+03:00
-aliases:
-    - "/devices-by-boundary-and-network-information-in-sccm-45323b50b080"
 tags:
     - SQL
     - SSRS
