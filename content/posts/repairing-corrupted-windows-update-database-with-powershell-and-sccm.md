@@ -11,7 +11,7 @@ lastmod: 2020-01-21T12:36:39+03:00
 tags:
     - MEMCM/SCCM
     - WindowsUpdate
-    - PowerShellx
+    - PowerShell
     - ConfigurationItems
 categories:
     - Scripts
