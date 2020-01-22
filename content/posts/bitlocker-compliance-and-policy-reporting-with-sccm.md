@@ -239,15 +239,15 @@ For reference only, you can download the files in the [Prerequisites](#prerequis
 
 #### HWI EXT Win32_EncryptableVolume_Ext
 
-{{% details "[Click to expand]" %}}
+{{< details "[Click to expand]" >}}
 <script src="https://embed.cacher.io/84023bd1583ba244fcae40c25e7c13f1795efa44.js?a=068ee8a301be70303d2ba01094d20cb1&t=github_gist"></script>
-{{% /details %}}
+{{< /details >}}
 
 #### HWI EXT Win32Reg_BitlockerPolicy
 
-{{% details "[Click to expand]" %}}
+{{< details "[Click to expand]" >}}
 <script src="https://embed.cacher.io/d5023fd15861a312faa8149b5b2b48f47a5fa044.js?a=ff436a1d0f93f585e3971eeb965bfbf2&t=github_gist"></script>
-{{% /details %}}
+{{< /details >}}
 
 ### Definitions
 
@@ -255,23 +255,23 @@ For reference only, you can download the files in the [Prerequisites](#prerequis
 
 #### HWI DEF Win32_EncryptableVolume_Ext
 
-{{% details "[Click to expand]" %}}
+{{< details "[Click to expand]" >}}
 <script src="https://embed.cacher.io/86556c840864ae44aeaf45915f2a13a3220bff46.js?a=0d0c2d11f28c1825f27f1dd36cd03e84&t=github_gist"></script>
-{{% /details %}}
+{{< /details >}}
 
 #### HWI DEF Win32Reg_BitlockerPolicy
 
-{{% details "[Click to expand]" %}}
+{{< details "[Click to expand]" >}}
 <script src="https://embed.cacher.io/d20530815e61a214aeab1cc00e244fa02a5ef843.js?a=919483b5e59734b34f318e05e85ee9df&t=github_gist"></script>
-{{% /details %}}
+{{< /details >}}
 
 ### SQL Query
 
 For reference only, the report includes this query.
 
-{{% details "[Click to expand]" %}}
+{{< details "[Click to expand]" >}}
 <script src="https://embed.cacher.io/815e39850433f841ffaf419b082a1ef12258a144.js?a=befad5d1a8f8d5bf079895fca36bfcc7&t=github_gist"></script>
-{{% /details %}}
+{{< /details >}}
 
 ***
 

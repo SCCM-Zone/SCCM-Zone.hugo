@@ -75,15 +75,15 @@ For reference only, reports already include these queries.
 
 #### Application Deployments
 
-{{% details "[Click to expand]" %}}
+{{< details "[Click to expand]" >}}
 <script src="https://embed.cacher.io/815539d65961ad15a9ae47c50d7913a67f5aad10.js?a=05f6022fa311628003703128e475bcfb&t=github_gist"></script>
-{{% /details %}}
+{{< /details >}}
 
 #### Package Deployments
 
-{{% details "[Click to expand]" %}}
+{{< details "[Click to expand]" >}}
 <script src="https://embed.cacher.io/d7046c89083aac12a0fb13c55f2e1bf67909fd48.js?a=887e02ddfdf124481a69303f24b3a93c&t=github_gist"></script>
-{{% /details %}}
+{{< /details >}}
 
 ***
 

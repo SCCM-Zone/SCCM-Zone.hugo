@@ -56,9 +56,9 @@ There comes a time when you need to cleanup or view all maintenance windows for 
 
 For reference only, the report includes this query.
 
-{{% details "[Click to expand]" %}}
+{{< details "[Click to expand]" >}}
 <script src="https://embed.cacher.io/d9513dd35833fb42a1a211970e2c1df32a58ae17.js?a=8adc00d55d7d4b68d4c3f0806577d5b7&t=github_gist"></script>
-{{% /details %}}
+{{< /details >}}
 
 ***
 

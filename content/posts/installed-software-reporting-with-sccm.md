@@ -107,9 +107,9 @@ The [`ufn_csv_String_Parser`](#sql-user-function) is needed in order to split th
 
 For reference only, the report includes this query.
 
-{{% details "[Click to expand]" %}}
+{{< details "[Click to expand]" >}}
 <script src="https://embed.cacher.io/82023cd40c33a313adaa459a09254ba02f5fab45.js?a=5eff416915ecfe811da0aa5944a91892&t=github_gist"></script>
-{{% /details %}}
+{{< /details >}}
 
 ***
 

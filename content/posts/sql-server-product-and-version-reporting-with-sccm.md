@@ -1,12 +1,11 @@
 ---
 #bigimg: [{src: "uploads/posts/2019/cover-macbook_report.jpeg"}]
-title: SQL Server Product and Version Reporting with SCCM
-subtitle: SQL licensing is always a pain but this report should make it a little easier…
-description: SCCM hardware inventory extension for SQL versioning.
-author: Ioan Popovici
-author_link: https://sccm.zone/
+title: "SQL Server Product and Version Reporting with SCCM"
+subtitle: "SQL licensing is always a pain but this report should make it a little easier…"
+description: "SCCM hardware inventory extension for SQL versioning"
+author: "Ioan Popovici"
+author_link: "https://sccm.zone/"
 logo: "/uploads/authors/ioan_popovici.jpg"
-toc: false
 date: 2019-07-18T16:19:15.931Z
 lastmod: 2019-09-11T12:39:20+03:00
 aliases:
@@ -234,42 +233,41 @@ The [`usp_PivotWithDynamicColumns`](#sql-stored-procedure) is needed in order to
 
 For reference only, you can download the file in the [Prerequisites](#prerequisites) section.
 
-{{% details "[Click to expand]" %}}
+{{< details "[Click to expand]" >}}
 <script src="https://embed.cacher.io/82503b820d64ff40acfe15940c7b49a67f0ef842.js?a=082e5185facf1c8324545916152f9894&t=github_gist"></script>
-{{% /details %}}
+{{< /details >}}
 
 ### Definitions
 
 For reference only, you can download the file in the [Prerequisites](#prerequisites) section.
 
-{{% details "[Click to expand]" %}}
+{{< details "[Click to expand]" >}}
 <script src="https://embed.cacher.io/860738d50536a214aeaa1c9b5b2d13af790fa813.js?a=f283c62834708e79cc125dad3b782c3b&t=github_gist"></script>
-{{% /details %}}
+{{< /details >}}
 
 ### SQL Stored Procedure
 
 Needs to be created as a prerequisite.
 
-{{% details "[Click to expand]" %}}
+{{< details "[Click to expand]" >}}
 <script src="https://embed.cacher.io/81033a840963af49acaf1791082512a77d0afa48.js?a=7630f583e8d0b8bfa6615782e3ef3a6b&t=github_gist"></script>
-{{% /details %}}
+{{< /details >}}
 
 ### SQL Query
 
 For reference only, the report includes this query.
 
-{{% details "[Click to expand]" %}}
+{{< details "[Click to expand]" >}}
 <script src="https://embed.cacher.io/865539800c36f816fcf813c6582f19a62903a912.js?a=19be45f5d31c708cce0d376811014fbd&t=github_gist"></script>
-{{% /details %}}
+{{< /details >}}
 
 ### VB Support Function
 
 For reference only, the report includes this function.
 
-{{% details "[Click to expand]" %}}
-
+{{< details "[Click to expand]" >}}
 <script src="https://embed.cacher.io/83576ed10a66f816abf812925f284fa17d58fc14.js?a=dac2e390b609c7b9b8c4f97ff5b0a4cc&t=github_gist"></script>
-{{% /details %}}
+{{< /details >}}
 
 &nbsp;
 

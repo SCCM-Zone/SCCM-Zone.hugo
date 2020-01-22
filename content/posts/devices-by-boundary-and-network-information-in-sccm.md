@@ -76,33 +76,33 @@ In order to check if an IP is in range, compute subnet or CIDR, three SQL User D
 
 Gets the CIDR (‘/’) from a IP Subnet Mask.
 
-{{% details "[Click to expand]" %}}
+{{< details "[Click to expand]" >}}
 <script src="https://embed.cacher.io/d05269d35d67ad15faa216970d7e4ca77d59fb42.js?a=4cd86b487fdce0cf633ebc8c2297ceb5&t=github_gist"></script>
-{{% /details %}}
+{{< /details >}}
 
 ### ufn_IsIPInRange
 
 Checks if the IP is in the specified IP range.
 
-{{% details "[Click to expand]" %}}
+{{< details "[Click to expand]" >}}
 <script src="https://embed.cacher.io/d95069d40832aa47aefb15c70b241fae2e03ff13.js?a=ca86032df616ad71693f19f645a5a40b&t=github_gist"></script>
-{{% /details %}}
+{{< /details >}}
 
 ### ufn_IsIPInSubnet
 
 Checks if the IP is in the specified subnet using the subnet mask.
 
-{{% details "[Click to expand]" %}}
+{{< details "[Click to expand]" >}}
 <script src="https://embed.cacher.io/84573d825d31fc15a1ac149a0e251dae2d08a044.js?a=3d8c251b93e2b820bb7bdf3a42c66c06&t=github_gist"></script>
-{{% /details %}}
+{{< /details >}}
 
 ### SQL Query
 
 For reference only, since the report includes this query.
 
-{{% details "[Click to expand]" %}}
+{{< details "[Click to expand]" >}}
 <script src="https://embed.cacher.io/82503e890460a841a9a91d910a2b49a22e08a012.js?a=789306ddd3ff82c26522f1a23b158d9c&t=github_gist"></script>
-{{% /details %}}
+{{< /details >}}
 
 ***
 

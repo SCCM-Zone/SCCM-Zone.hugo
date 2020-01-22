@@ -93,17 +93,17 @@ The [`ufn_csv_String_Parser`](#sql-user-function) is needed in order to split th
 
 Needs to be created as a prerequisite.
 
-{{% details "[Click to expand]" %}}
+{{< details "[Click to expand]" >}}
 <script src="https://embed.cacher.io/d2546a840b64fe45a8a946c558241df1285ffd44.js?a=299b685e5b395f67c54f24e4f3bef055&t=github_gist"></script>
-{{% /details %}}
+{{< /details >}}
 
 ### SQL Query
 
 For reference only, you can download the file in the [Prerequisites](#prerequisites) section.
 
-{{% details "[Click to expand]" %}}
+{{< details "[Click to expand]" >}}
 <script src="https://embed.cacher.io/83003b820f3ba845aeab1594037c19a57d5aa810.js?a=2344c7c3500c3c111ecd439031b82e32&t=github_gist"></script>
-{{% /details %}}
+{{< /details >}}
 
 ***
 
