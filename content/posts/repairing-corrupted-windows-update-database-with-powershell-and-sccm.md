@@ -28,6 +28,7 @@ Without further ado let's get right into it.
 
 ## Symptoms
 
+* Major slowdowns
 * Application event log full of ESENT `Event ID 623` errors, like the one below.
 
 ```text
@@ -36,8 +37,6 @@ its maximum size of 16Mb. It is likely that a long-running transaction is preven
 of the version store and causing it to build up in size. Updates will be rejected until the
 long-running transaction has been completely committed or rolled back.
 ```
-
-* Major slowdowns
 
 ## Solution
 
