@@ -1,6 +1,6 @@
 ---
 #bigimg: [{src: "uploads/posts/2019/cover-macbook_report.jpeg"}]
-title: "Installed Software Reporting with SCCM"
+title: "Installed Software Reporting with MEMCM/SCCM"
 subtitle: "Installed software reporting made easy…"
 description: "Lists installed software by computer or publisher. Supports filtering and exclusions by multiple software names using comma separated values and wildcards."
 author: "Ioan Popovici"
@@ -8,15 +8,15 @@ author_link: "https://sccm.zone/"
 logo: "/uploads/authors/ioan_popovici.jpg"
 date: 2018-12-06T19:05:27.062Z
 lastmod: 2019-09-12T12:37:41+03:00
-aliases:
-    - "/installed-software-reporting-with-sccm-5c70108a11c4"
 tags:
     - SQL
     - SSRS
-    - SCCM
+    - MEMCM/SCCM
     - Software
 categories:
     - Reports
+aliases:
+    - "/installed-software-reporting-with-sccm-5c70108a11c4"
 ---
 
 [Report release history](http://SCCM.Zone/sw-installed-software-by-user-selection-changelog)

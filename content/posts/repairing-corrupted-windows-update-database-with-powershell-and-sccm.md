@@ -1,21 +1,23 @@
 ---
 #bigimg: [{src: "uploads/posts/2018/cover-bsod_meme.jpeg"}]
-title: "Repairing corrupted Windows Update Database with PowerShell and SCCM"
+title: "Repairing corrupted Windows Update Database with PowerShell and MEMCM/SCCM"
 subtitle: "When a botched software update corrupts half of your fleet windows update database, this script might come in handy…"
-description: "Repairs corrupted Windows Update Database"
+description: "How-to repair a corrupted Windows Update Database using PowerShell."
 author: "Ioan Popovici"
+author_link: "https://sccm.zone/"
+logo: "/uploads/authors/ioan_popovici.jpg"
 date: 2018-05-17T17:43:31.100Z
 lastmod: 2020-01-21T12:36:39+03:00
-aliases:
-    - "/repairing-corrupted-windows-update-database-with-sccm-bb7b25a15daa"
 tags:
-    - SCCM
+    - MEMCM/SCCM
     - WindowsUpdate
     - PowerShellx
     - ConfigurationItems
 categories:
     - Scripts
     - HowTo
+aliases:
+    - "/repairing-corrupted-windows-update-database-with-sccm-bb7b25a15daa"
 ---
 
 [Script release history](https://SCCM.Zone/Repair-WUDatastore-CHANGELOG)
@@ -29,10 +31,10 @@ Without further ado let's get right into it.
 * Application event log full of ESENT `Event ID 623` errors, like the one below.
 
 ```text
-wuaueng.dll (2160) SUS20ClientDataStore: The version store for this instance (0) has reached its
-maximum size of 16Mb. It is likely that a long-running transaction is preventing cleanup of the
-version store and causing it to build up in size. Updates will be rejected until the long-
-running transaction has been completely committed or rolled back.`
+wuaueng.dll (2160) SUS20ClientDataStore: The version store for this instance (0) has reached
+its maximum size of 16Mb. It is likely that a long-running transaction is preventing cleanup
+of the version store and causing it to build up in size. Updates will be rejected until the
+long-running transaction has been completely committed or rolled back.
 ```
 
 * Major slowdowns
@@ -41,7 +43,13 @@ running transaction has been completely committed or rolled back.`
 
 The solution was to remove and reinitialize the WUDatastore. Nuking the whole database seems a bit extreme, but then again so is being hanged by an angry mob. I could not find another solution so I added a script to a baseline with automatic remediation. This workaround should take care of any future occurrences. You can also use the run script feature if time is of the essence.
 
-### Script Parameters
+## Prerequisites
+
+* Test environment
+* Powershell script (Follow link → Copy/Download)
+  * [Repair-WUDataStore.ps1](https://snippets.cacher.io/snippet/2606052d61408363f1ae)
+
+## Script Parameters
 
 The script supports the following parameters.
 
@@ -76,6 +84,8 @@ Using a configuration item compliance  to repair the WUDatabase.
 ## Code
 
 ### PowerShell Script
+
+Can be used standalone, within a CI or with the `Run Script` feature.
 
 {{< details "[Click to expand]" >}}
 <script src="https://gist.github.com/Ioan-Popovici/f6abf4e58bb233920c74b15c9cbb1d84.js"></script>

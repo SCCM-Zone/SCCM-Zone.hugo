@@ -1,8 +1,8 @@
 ---
 #bigimg: [{src: "uploads/posts/2018/cover-bitlocker_user_chair.jpeg"}]
-title: "BitLocker Compliance and Policy Reporting with SCCM"
+title: "BitLocker Compliance and Policy Reporting with MEMCM/SCCM"
 subtitle: "If you are looking for a comprehensive BitLocker report, look no more…"
-description: ""
+description: "List Bitlocker compliance and policy settings with MEMCM/SCCM."
 author: "Ioan Popovici"
 author_link: "https://sccm.zone/"
 logo: "/uploads/authors/ioan_popovici.jpg"
@@ -11,7 +11,7 @@ lastmod: 2019-08-23T12:37:33+03:00
 tags:
     - SQL
     - SSRS
-    - SCCM
+    - MEMCM/SCCM
     - Bitlocker
     - Security
 categories:
@@ -22,7 +22,7 @@ aliases:
 
 [Report release history](https://SCCM.Zone/SEC-BitLocker-Compliance-And-Policy-CHANGELOG)
 
-My vague promises of publishing a BitLocker report based on HWI seem to have come true. This is a complete report that also displays BitLocker GPO settings. In order to get the BitLocker and Policy data, you need to extend the SCCM Hardware Inventory. If you don’t want to do that you can use my [`BitLocker Configuration Baseline`](https://SCCM.Zone/Get-BitlockerStatus) together with the [`Baseline Report with Actual Values`](https://SCCM.Zone/CB-Configuration-Baseline-Compliance) report.
+My vague promises of publishing a BitLocker report based on HWI seem to have come true. This is a complete report that also displays BitLocker GPO settings. In order to get the BitLocker and Policy data, you need to extend the MEMCM/SCCM Hardware Inventory. If you don’t want to do that you can use my [`BitLocker Configuration Baseline`](https://SCCM.Zone/Get-BitlockerStatus) together with the [`Baseline Report with Actual Values`](https://SCCM.Zone/CB-Configuration-Baseline-Compliance) report.
 
 ## Recommendations
 

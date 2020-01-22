@@ -1,24 +1,26 @@
 ---
 #bigimg: [{src: "uploads/posts/2019/cover-macbook_report.jpeg"}]
-title: "SCCM Application Detection Method using in Console Application Version"
+title: "MEMCM/SCCM Application Detection Method using in Console Application Version"
 subtitle: "Say no to application version hard-coded in the detection script."
-description: ""
+description: "How-to use the MEMCM/SCCM console application version as a detection method."
 author: "Ioan Popovici"
 author_link: "https://sccm.zone/"
 logo: "/uploads/authors/ioan_popovici.jpg"
 date: 2019-04-01T16:19:15.931Z
 lastmod: 2019-09-11T12:39:20+03:00
 tags:
-    - SCCM
+    - MEMCM/SCCM
     - Application
     - Powershell
     - DetectionMethod
 categories:
     - HowTo
     - Scripts
+aliases:
+    - "/sccm-application-detection-method-using-in-console-application-version-59a755995942"
 ---
 
-This method is valid for any SCCM application. In this case I will use the configuration manager client upgrade application. You might ask yourself, why not use the automatic client upgrade? Well, because the client upgrade can only run during a maintenance window. I won’t go into details, but unless this behavior changes, I cannot use this feature with my current environment.
+This method is valid for any MEMCM/SCCM application. In this case I will use the configuration manager client upgrade application. You might ask yourself, why not use the automatic client upgrade? Well, because the client upgrade can only run during a maintenance window. I won’t go into details, but unless this behavior changes, I cannot use this feature with my current environment.
 
 Without further ado, here is how to do it…
 

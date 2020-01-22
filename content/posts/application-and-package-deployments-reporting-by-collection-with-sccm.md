@@ -1,25 +1,25 @@
 ---
 #bigimg: [{src: "uploads/posts/2018/cover-bitlocker_user_chair.jpeg"}]
-title: "Application and Package Deployments Reporting by Collection with SCCM"
+title: "Application and Package Deployments Reporting by Collection with MEMCM/SCCM"
 subtitle: "Deployments reports for all collection members available get it while it’s hot…"
-description: "This report lists the application or package deployments for a device or user collection."
+description: "Lists the application or package deployments for a MEMCM/SCCM device or user collection."
 author: "Ioan Popovici"
 author_link: "https://sccm.zone/"
 logo: "/uploads/authors/ioan_popovici.jpg"
 date: 2018-05-23T16:51:00.786Z
 lastmod: 2019-08-23T12:36:41+03:00
-aliases:
-    - "/package-and-application-deployments-reporting-by-collection-with-sccm-64199bbcdc6c"
 tags:
     - SQL
     - SSRS
-    - SCCM
+    - MEMCM/SCCM
     - Applications
     - Packages
     - Deployments
     - Security
 categories:
     - Reports
+aliases:
+    - "/package-and-application-deployments-reporting-by-collection-with-sccm-64199bbcdc6c"
 ---
 
 [Report release history](https://SCCM.Zone/DE-Deployments-by-Device-or-User-CHANGELOG)

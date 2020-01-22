@@ -1,15 +1,15 @@
 ---
 #bigimg: ""
-title: "Extend the SCCM Console to show Collection Membership using Console Builder"
+title: "Extend the MEMCM/SCCM Console to show Collection Membership using Console Builder"
 subtitle: "Let’s be frank the collection membership should be visible in the console by default. Here’s how to do it…"
-description: ""
+description: "View Collection Membership within the MEMCM/SCCM console when selecting a device"
 author: "Ioan Popovici"
 author_link: "https://sccm.zone/"
 logo: "/uploads/authors/ioan_popovici.jpg"
 date: 2019-02-28T17:32:05.007Z
 lastmod: 2019-09-12T12:38:04+03:00
 tags:
-    - SCCM
+    - MEMCM/SCCM
     - ConsoleBuilder
 categories:
     - HowTo
@@ -18,7 +18,7 @@ aliases:
     - "/extend-the-sccm-console-to-show-collection-membership-using-console-builder-c6db52b408d8"
 ---
 
-Using RCT to show the collection membership is slow and awkward. In my search to find a better option I stumbled onto the SCCM Console Builder. This is an amazing tool that is already built-in and allows a wide range of customization. I used [`Zeng Yinghua’s`](https://www.scconfigmgr.com/2017/11/09/customizing-configmgr-admin-console-add-details-tab-to-content-status/) blog post as a guide when creating this extension.
+Using RCT to show the collection membership is slow and awkward. In my search to find a better option I stumbled onto the MEMCM/SCCM Console Builder. This is an amazing tool that is already built-in and allows a wide range of customization. I used [`Zeng Yinghua’s`](https://www.scconfigmgr.com/2017/11/09/customizing-configmgr-admin-console-add-details-tab-to-content-status/) blog post as a guide when creating this extension.
 
 Without further ado let’s get to it!
 
@@ -32,7 +32,7 @@ Without further ado let’s get to it!
 
 ### Start the Console Builder
 
-Start PowerShell on any machine that has the SCCM console installed and run the following command:
+Start PowerShell on any machine that has the MEMCM/SCCM console installed and run the following command:
 
 ```powershell
 & $env:SMS_ADMIN_UI_PATH.Replace('i386', 'AdminUI.ConsoleBuilder.exe')
@@ -130,7 +130,7 @@ Start PowerShell on any machine that has the SCCM console installed and run the 
 
 ### Apply Modifications
 
-Click Ok on all open settings, close the Console Builder and start/restart the SCCM Console.
+Click Ok on all open settings, close the Console Builder and start/restart the MEMCM/SCCM Console.
 
 > **Notes**
 > THE CONSOLE BUILDER HAS NO SAVE FUNCTION! ANY CHANGES WILL BE COMMITTED WHEN THE CONSOLE BUILDER IS CLOSED.

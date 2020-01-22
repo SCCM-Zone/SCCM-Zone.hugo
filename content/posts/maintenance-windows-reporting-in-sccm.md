@@ -1,27 +1,27 @@
 ---
 #bigimg: [{src: "uploads/posts/2019/cover-macbook_report.jpeg"}]
-title: "Maintenance Windows Reporting in SCCM"
+title: "Maintenance Windows Reporting in MEMCM/SCCM"
 subtitle: "Sometimes you just need all maintenance windows in one place…"
-description: "Lists all SCCM maintenance windows with Start Time and Duration."
+description: "Lists all MEMCM/SCCM maintenance windows with Start Time and Duration."
 author: "Ioan Popovici"
 author_link: "https://sccm.zone/"
 logo: "/uploads/authors/ioan_popovici.jpg"
 date: 2018-08-24T16:23:26.463Z
 lastmod: 2019-08-23T12:37:05+03:00
-aliases:
-    - "/maintenance-windows-reporting-in-sccm-2196784d0e2c"
 tags:
     - SQL
     - SSRS
-    - SCCM
+    - MEMCM/SCCM
     - MaintenanceWindows
 categories:
     - Reports
+aliases:
+    - "/maintenance-windows-reporting-in-sccm-2196784d0e2c"
 ---
 
 [Report release history](https://SCCM.Zone/SIT-Maintenance-Windows-CHANGELOG)
 
-There comes a time when you need to cleanup or view all maintenance windows for your environment. I had this for a while but realized only today that there is no builtin report that can show you all maintenance windows in SCCM. Without further ado…
+There comes a time when you need to cleanup or view all maintenance windows for your environment. I had this for a while but realized only today that there is no builtin report that can show you all maintenance windows in MEMCM/SCCM. Without further ado…
 
 ## Prerequisites
 

@@ -1,8 +1,8 @@
 ---
 #bigimg: [{src: "uploads/posts/2019/cover-macbook_report.jpeg"}]
-title: "SQL Server Product and Version Reporting with SCCM"
+title: "SQL Server Product and Version Reporting with MEMCM/SCCM"
 subtitle: "SQL licensing is always a pain but this report should make it a little easier…"
-description: "SCCM hardware inventory extension for SQL versioning"
+description: "List MEMCM/SCCM hardware inventory extension for SQL versioning."
 author: "Ioan Popovici"
 author_link: "https://sccm.zone/"
 logo: "/uploads/authors/ioan_popovici.jpg"
@@ -13,7 +13,7 @@ aliases:
 tags:
     - SQL
     - SSRS
-    - SCCM
+    - MEMCM/SCCM
     - HWI
     - vbScript
 categories:

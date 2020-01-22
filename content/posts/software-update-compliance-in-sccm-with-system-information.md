@@ -1,22 +1,22 @@
 ---
 #bigimg: [{src: "uploads/posts/2019/cover-macbook_report.jpeg"}]
-title: Software Update Compliance in SCCM with System information
-subtitle: Sometimes you need all the data in one place…
-description:
-author: Ioan Popovici
-author_link: https://sccm.zone/
+title: "Software Update Compliance in MEMCM/SCCM with System information"
+subtitle: "Sometimes you need all the data in one place…"
+description: "List software update compliance in MEMCM/SCCM with additional system information."
+author: "Ioan Popovici"
+author_link: "https://sccm.zone/"
 logo: "/uploads/authors/ioan_popovici.jpg"
 date: 2018-10-16T17:09:40.259Z
 lastmod: 2019-08-23T12:37:28+03:00
-aliases:
-    - "/software-update-compliance-in-sccm-with-system-information-71881295d21a"
 tags:
     - SQL
     - SSRS
-    - SCCM
+    - MEMCM/SCCM
     - Updates
 categories:
     - Reports
+aliases:
+    - "/software-update-compliance-in-sccm-with-system-information-71881295d21a"
 ---
 
 [Report release history](https://SCCM.Zone/SU-Compliance-Classification-Severity-CHANGELOG)

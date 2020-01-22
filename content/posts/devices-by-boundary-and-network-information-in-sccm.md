@@ -1,29 +1,29 @@
 ---
 #bigimg: [{src: "uploads/posts/2019/cover-macbook_report.jpeg"}]
-title: "Devices by Boundary and Network Information in SCCM"
+title: "Devices by Boundary and Network Information in MEMCM/SCCM"
 subtitle: "Got to have this report for boundaries review :)"
-description: ""
+description: "Gets the boundary and network information in MEMCM/SCCM with SSRS"
 author: "Ioan Popovici"
 author_link: "https://sccm.zone/"
 logo: "/uploads/authors/ioan_popovici.jpg"
 date: 2019-03-13T18:42:18.921Z
 lastmod: 2019-09-11T12:39:14+03:00
-aliases:
-    - "/devices-by-boundary-and-network-information-in-sccm-45323b50b080"
 tags:
     - SQL
     - SSRS
-    - SCCM
+    - MEMCM/SCCM
     - Boundaries
 categories:
     - Reports
+aliases:
+    - "/devices-by-boundary-and-network-information-in-sccm-45323b50b080"
 ---
 
 [Report release history](https://SCCM.Zone/SIT-Devices-by-Boundary-and-Network-CHANGELOG)
 
 This all started with a simple boundary review when I figured It might be handy to have a boundary report. After some research It started to dawn on me that this would not be an easy task.
 
-In the SCCM DB there is no correlation between boundaries and IPs so there goes the easy way. After a lot of banging my head on the desk this is what I came up with. It’s not pretty but I did my best considering my limited SQL knowledge.
+In the MEMCM/SCCM DB there is no correlation between boundaries and IPs so there goes the easy way. After a lot of banging my head on the desk this is what I came up with. It’s not pretty but I did my best considering my limited SQL knowledge.
 
 Here goes nothing…
 
